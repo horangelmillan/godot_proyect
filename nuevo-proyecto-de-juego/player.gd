@@ -9,7 +9,7 @@ func handle_interaction():
 	var ui = get_tree().get_first_node_in_group("ui")
 
 	if ui and ui.is_dialogue_open():
-		ui.hide_dialogue()
+		ui.next_dialogue()
 	else:
 		try_interact()
 
