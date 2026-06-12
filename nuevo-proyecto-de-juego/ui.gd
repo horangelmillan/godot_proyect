@@ -5,10 +5,27 @@ extends CanvasLayer
 var dialogue_open = false
 var dialogue_lines = []
 var current_line = 0
+var is_typing = false
+var full_text = ""
+
+func start_typing():
+
+	is_typing = true
+
+	for letter in full_text:
+
+		dialogue_text.text += letter
+
+		await get_tree().create_timer(0.03).timeout
+
+	is_typing = false
 
 func show_dialogue(text):
 
-	dialogue_text.text = text
+	full_text = text
+	dialogue_text.text = ""
+
+	start_typing()
 	dialogue_box.visible = true
 	dialogue_open = true
 	var camera = get_tree().get_first_node_in_group("main_camera")
