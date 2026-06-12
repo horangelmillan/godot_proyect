@@ -2,3 +2,4 @@ res://Main.tscn
 res://player.gd
 res://camera_3d.gd
 res://npc.gd
+res://ui.gd

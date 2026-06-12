@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d06w4qwkvwj2l" path="res://player.gd" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://btu4usn7nbpud" path="res://camera_3d.gd" id="2_uu6xs"]
 [ext_resource type="Script" uid="uid://dlpwcs3vfh3lu" path="res://npc.gd" id="3_r0du0"]
+[ext_resource type="Script" uid="uid://dxok7c8h4ie1t" path="res://ui.gd" id="4_cm0pq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glv2v"]
 
@@ -58,3 +59,20 @@ mesh = SubResource("CapsuleMesh_uu6xs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NPC" unique_id=1811800946]
 shape = SubResource("CapsuleShape3D_r0du0")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=234785316 groups=["ui"]]
+script = ExtResource("4_cm0pq")
+
+[node name="DialogueBox" type="Panel" parent="UI" unique_id=1635511124]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueText" type="Label" parent="UI/DialogueBox" unique_id=575159867]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hola Aventurero"

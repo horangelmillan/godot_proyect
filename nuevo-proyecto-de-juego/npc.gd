@@ -1,4 +1,8 @@
 extends CharacterBody3D
 
 func interact():
-	print("Hola aventurero")
+
+	var ui = get_tree().get_first_node_in_group("ui")
+
+	if ui:
+		ui.show_dialogue("Hola aventurero")
