@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
-[ext_resource type="Script" uid="uid://d06w4qwkvwj2l" path="res://player.gd" id="1_glv2v"]
-[ext_resource type="Script" uid="uid://btu4usn7nbpud" path="res://camera_3d.gd" id="2_uu6xs"]
-[ext_resource type="Script" uid="uid://dlpwcs3vfh3lu" path="res://npc.gd" id="3_r0du0"]
-[ext_resource type="Script" uid="uid://dxok7c8h4ie1t" path="res://ui.gd" id="4_cm0pq"]
+[ext_resource type="Script" uid="uid://d06w4qwkvwj2l" path="res://scripts/player.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://btu4usn7nbpud" path="res://scripts/camera_3d.gd" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://dlpwcs3vfh3lu" path="res://scripts/npc.gd" id="3_r0du0"]
+[ext_resource type="Script" uid="uid://dxok7c8h4ie1t" path="res://scripts/ui.gd" id="4_cm0pq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glv2v"]
 

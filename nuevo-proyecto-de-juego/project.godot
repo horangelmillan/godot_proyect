@@ -8,6 +8,11 @@
 
 config_version=5
 
+[autoload]
+
+GameManager="*res://core/autoload/GameManager.gd"
+GameEvents="*res://core/autoload/GameEvents.gd"
+
 [application]
 
 config/name="Nuevo Proyecto de Juego"
