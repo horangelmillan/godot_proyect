@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
 [ext_resource type="Script" uid="uid://d06w4qwkvwj2l" path="res://player.gd" id="1_glv2v"]
+[ext_resource type="Script" uid="uid://btu4usn7nbpud" path="res://camera_3d.gd" id="2_uu6xs"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glv2v"]
 
@@ -14,15 +15,15 @@ size = Vector3(20, 1, 20)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uu6xs"]
 
-[node name="Node3D" type="Node3D" unique_id=1222257783]
+[node name="Main" type="Node3D" unique_id=1222257783]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1016861947]
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1016861947]
 physics_material_override = SubResource("PhysicsMaterial_glv2v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1252760461]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=1252760461]
 shape = SubResource("BoxShape3D_uu6xs")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=924341269]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=924341269]
 mesh = SubResource("BoxMesh_r0du0")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=96031228]
@@ -35,8 +36,10 @@ mesh = SubResource("CapsuleMesh_glv2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=533014154]
 shape = SubResource("CapsuleShape3D_uu6xs")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1235547738]
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1235547738 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 8, 10)
+script = ExtResource("2_uu6xs")
+player = NodePath("..")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=179730480]
+[node name="Light" type="DirectionalLight3D" parent="." unique_id=179730480]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
