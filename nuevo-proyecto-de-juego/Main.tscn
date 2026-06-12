@@ -1,6 +1,13 @@
 [gd_scene format=3 uid="uid://cmyxmqdjcmwb3"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_rxg2q"]
+[ext_resource type="Script" uid="uid://d06w4qwkvwj2l" path="res://player.gd" id="1_glv2v"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glv2v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uu6xs"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0du0"]
 size = Vector3(20, 1, 20)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_glv2v"]
@@ -9,11 +16,18 @@ size = Vector3(20, 1, 20)
 
 [node name="Node3D" type="Node3D" unique_id=1222257783]
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=1748456778]
-mesh = SubResource("BoxMesh_rxg2q")
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1016861947]
+physics_material_override = SubResource("PhysicsMaterial_glv2v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1252760461]
+shape = SubResource("BoxShape3D_uu6xs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=924341269]
+mesh = SubResource("BoxMesh_r0du0")
 
 [node name="Player" type="CharacterBody3D" parent="." unique_id=96031228]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+script = ExtResource("1_glv2v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player" unique_id=69966399]
 mesh = SubResource("CapsuleMesh_glv2v")
