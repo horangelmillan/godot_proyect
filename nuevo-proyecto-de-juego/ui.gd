@@ -11,11 +11,19 @@ func show_dialogue(text):
 	dialogue_text.text = text
 	dialogue_box.visible = true
 	dialogue_open = true
+	var camera = get_tree().get_first_node_in_group("main_camera")
+
+	if camera:
+		camera.enter_dialogue()
 
 func hide_dialogue():
 
 	dialogue_box.visible = false
 	dialogue_open = false
+	var camera = get_tree().get_first_node_in_group("main_camera")
+
+	if camera:
+		camera.exit_dialogue()
 
 func is_dialogue_open():
 	return dialogue_open

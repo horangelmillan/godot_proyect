@@ -42,7 +42,7 @@ mesh = SubResource("CapsuleMesh_glv2v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player" unique_id=533014154]
 shape = SubResource("CapsuleShape3D_uu6xs")
 
-[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1235547738 node_paths=PackedStringArray("player")]
+[node name="Camera3D" type="Camera3D" parent="Player" unique_id=1235547738 node_paths=PackedStringArray("player") groups=["main_camera"]]
 transform = Transform3D(1, 0, 0, 0, 0.81915206, 0.57357645, 0, -0.57357645, 0.81915206, 0, 8, 10)
 script = ExtResource("2_uu6xs")
 player = NodePath("..")
