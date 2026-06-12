@@ -4,6 +4,7 @@ extends Camera3D
 
 var exploration_offset = Vector3(0, 5, 5)
 var dialogue_offset = Vector3(0, 3, 3)
+var follow_speed = 5.0
 
 var current_offset = exploration_offset
 
@@ -22,5 +23,15 @@ func exit_dialogue():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if player:
-		global_position = player.global_position + current_offset
+		var target_position = player.global_position + current_offset
+
+		global_position = global_position.lerp(
+			target_position,
+			delta * follow_speed
+		)
+		
+		look_at(
+			player.global_position,
+			Vector3.UP
+		)
 	pass
