@@ -1,7 +1,7 @@
 extends CanvasLayer
 
-@onready var dialogue_box = $DialogueBox
-@onready var dialogue_text = $DialogueBox/DialogueText
+@onready var dialogue_box = $RootUI/DialogueBox
+@onready var dialogue_text = $RootUI/DialogueBox/Content/DialogueText
 var dialogue_open = false
 var dialogue_lines = []
 var current_line = 0

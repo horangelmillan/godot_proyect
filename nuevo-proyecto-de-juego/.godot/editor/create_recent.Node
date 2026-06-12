@@ -1,4 +1,8 @@
+MarginContainer
+Container
+Control
 Label
+RichTextLabel
 Panel
 CanvasLayer
 CollisionShape3D
