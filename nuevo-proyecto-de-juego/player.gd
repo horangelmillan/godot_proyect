@@ -4,6 +4,29 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var interaction_distance = 1.5
 
+func handle_interaction():
+
+	var ui = get_tree().get_first_node_in_group("ui")
+
+	if ui and ui.is_dialogue_open():
+		ui.hide_dialogue()
+	else:
+		try_interact()
+
+func try_interact():
+
+	var npcs = get_tree().get_nodes_in_group("npc")
+
+	for npc in npcs:
+
+		var distance = global_position.distance_to(
+			npc.global_position
+		)
+
+		if distance < interaction_distance:
+			npc.interact()
+			return
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -25,20 +48,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
 	if Input.is_action_just_pressed("interact"):
-		try_interact()
+		handle_interaction()
 		
 	move_and_slide()
-	
-func try_interact():
-
-	var npcs = get_tree().get_nodes_in_group("npc")
-
-	for npc in npcs:
-
-		var distance = global_position.distance_to(
-			npc.global_position
-		)
-
-		if distance < interaction_distance:
-			npc.interact()
-			return
