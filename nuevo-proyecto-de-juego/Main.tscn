@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d06w4qwkvwj2l" path="res://player.gd" id="1_glv2v"]
 [ext_resource type="Script" uid="uid://btu4usn7nbpud" path="res://camera_3d.gd" id="2_uu6xs"]
+[ext_resource type="Script" uid="uid://dlpwcs3vfh3lu" path="res://npc.gd" id="3_r0du0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_glv2v"]
 
@@ -14,6 +15,10 @@ size = Vector3(20, 1, 20)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_glv2v"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uu6xs"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_uu6xs"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r0du0"]
 
 [node name="Main" type="Node3D" unique_id=1222257783]
 
@@ -43,3 +48,13 @@ player = NodePath("..")
 
 [node name="Light" type="DirectionalLight3D" parent="." unique_id=179730480]
 transform = Transform3D(0.70710677, -0.49999997, 0.49999997, 0, 0.70710677, 0.70710677, -0.70710677, -0.49999997, 0.49999997, 0, 0, 0)
+
+[node name="NPC" type="CharacterBody3D" parent="." unique_id=280037159 groups=["npc"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2, 0)
+script = ExtResource("3_r0du0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="NPC" unique_id=153852375]
+mesh = SubResource("CapsuleMesh_uu6xs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NPC" unique_id=1811800946]
+shape = SubResource("CapsuleShape3D_r0du0")

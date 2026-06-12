@@ -3,6 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+var interaction_distance = 1.5
 
 
 func _physics_process(delta: float) -> void:
@@ -24,5 +25,22 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+		
+	if Input.is_action_just_pressed("interact"):
+		try_interact()
+		
 	move_and_slide()
+	
+func try_interact():
+
+	var npcs = get_tree().get_nodes_in_group("npc")
+
+	for npc in npcs:
+
+		var distance = global_position.distance_to(
+			npc.global_position
+		)
+
+		if distance < interaction_distance:
+			npc.interact()
+			return
