@@ -9,14 +9,7 @@ var dialogue = [
 	"Espero que disfrutes tu estancia"
 ]
 
-func interact(player):
-	face_player(player)
-
-	var ui = get_tree().get_first_node_in_group("ui")
-
-	if ui:
-		ui.start_dialogue(dialogue)
-		GameEvents.npc_visited.emit(npc_id)
+var interaction_in_progress = false
 
 func face_player(player):
 	var direction = player.global_position - global_position

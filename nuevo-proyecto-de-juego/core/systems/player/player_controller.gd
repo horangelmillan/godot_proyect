@@ -3,12 +3,24 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 2
 var interaction_distance = 1.5
+var last_interaction_time = 0.0
+var interaction_cooldown = 0.2
 
 func handle_interaction():
+	# Proteger contra múltiples presiones rápidas
+	var current_time = Time.get_ticks_msec() / 1000.0
+	if current_time - last_interaction_time < interaction_cooldown:
+		return
+	last_interaction_time = current_time
+
 	var ui = get_tree().get_first_node_in_group("ui")
 
 	if ui and ui.is_dialogue_open():
-		ui.next_dialogue()
+		# Si se está escribiendo, completar el texto inmediatamente
+		if ui.is_typing:
+			ui.skip_typing = true
+		else:
+			ui.next_dialogue()
 	else:
 		try_interact()
 

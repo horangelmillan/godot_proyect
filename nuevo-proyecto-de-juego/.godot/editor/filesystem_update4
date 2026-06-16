@@ -1,10 +1,6 @@
-res://Main.tscn
-res://player.gd
-res://core/autoload/GameManager.gd
-res://core/autoload/GameEvents.gd
-res://core/story/StoryBase.gd
-res://core/systems/camera/camera_controller.gd
-res://core/systems/dialogue/npc.gd
-res://core/systems/player/player_controller.gd
 res://core/systems/ui/dialogue_ui.gd
-res://core/utils/constants.gd
+res://scripts/ui.gd
+res://core/systems/dialogue/npc.gd
+res://Main.tscn
+res://scripts/player.gd
+res://scripts/npc.gd
